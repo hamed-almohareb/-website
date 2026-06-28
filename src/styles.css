@@ -1,0 +1,124 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "@fontsource/tajawal/400.css";
+@import "@fontsource/tajawal/500.css";
+@import "@fontsource/tajawal/700.css";
+@import "@fontsource/tajawal/900.css";
+@import "@fontsource/amiri/400.css";
+@import "@fontsource/amiri/700.css";
+@import "@fontsource/amiri/400-italic.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+
+  --font-sans: "Tajawal", "Segoe UI", system-ui, sans-serif;
+  --font-serif: "Amiri", "Times New Roman", serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Editorial warm palette */
+  --background: oklch(0.985 0.005 80);          /* warm cream */
+  --foreground: oklch(0.18 0.015 60);           /* deep ink */
+  --ink: oklch(0.18 0.015 60);
+  --cream: oklch(0.985 0.005 80);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.015 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.015 60);
+
+  --primary: oklch(0.52 0.13 38);               /* terracotta */
+  --primary-foreground: oklch(0.985 0.005 80);
+
+  --secondary: oklch(0.95 0.012 70);
+  --secondary-foreground: oklch(0.18 0.015 60);
+
+  --muted: oklch(0.94 0.01 70);
+  --muted-foreground: oklch(0.46 0.02 60);
+
+  --accent: oklch(0.65 0.14 55);                /* brass */
+  --accent-foreground: oklch(0.985 0.005 80);
+
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.985 0.005 80);
+
+  --border: oklch(0.9 0.012 70);
+  --input: oklch(0.9 0.012 70);
+  --ring: oklch(0.52 0.13 38);
+
+  --gradient-warm: linear-gradient(135deg, oklch(0.52 0.13 38), oklch(0.65 0.14 55));
+  --shadow-soft: 0 10px 40px -20px oklch(0.18 0.015 60 / 0.25);
+  --shadow-card: 0 4px 24px -12px oklch(0.18 0.015 60 / 0.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans { font-family: var(--font-sans); }
+}
+
+@utility container-blog {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@utility prose-ar {
+  font-size: 1.125rem;
+  line-height: 2;
+  color: var(--color-foreground);
+  & p {
+    margin-bottom: 1.25rem;
+  }
+}
